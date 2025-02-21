@@ -16,7 +16,7 @@ export const AddTodo = () => {
     setValue("");
   };
   return (
-    <div className="h-20 flex justify-center items-center bg-white/50 rounded-lg z-10">
+    <div className="h-20 min-h-20 flex justify-center items-center bg-white/50 rounded-lg z-10">
       <form
         action=""
         onSubmit={addTodoHandler}

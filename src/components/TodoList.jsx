@@ -17,7 +17,7 @@ export const TodoList = () => {
   };
 
   return (
-    <div className="h-fit flex justify-center p-2 bg-white/50 rounded-lg z-10 overflow-y-scroll scrollbar">
+    <div className="h-fit max-h-3/2 flex justify-center p-2 bg-white/50 rounded-lg z-10 overflow-y-scroll scrollbar">
       <h2
         className={`place-self-center text-xl font-medium text-gray-800 ${
           todos.length === 0 ? "block" : "hidden"
