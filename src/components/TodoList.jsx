@@ -14,8 +14,6 @@ export const TodoList = () => {
     data && setMyTodos(data);
   }, [todos]);
 
-  console.log(myTodos);
-
   const checkBoxHandler = (id) => {
     dispatch(updateTodo(id));
   };
