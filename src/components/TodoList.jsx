@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateTodo, removeTodo } from "../features/todo/todoSlice";
 import { FaCheck } from "react-icons/fa";
@@ -7,12 +7,6 @@ import { MdOutlineCancel } from "react-icons/md";
 export const TodoList = () => {
   const todos = useSelector((state) => state.todos);
   const dispatch = useDispatch();
-  const [myTodos, setMyTodos] = useState([]);
-
-  useEffect(() => {
-    const data = JSON.parse(localStorage.getItem("myTodos"));
-    data && setMyTodos(data);
-  }, [todos]);
 
   const checkBoxHandler = (id) => {
     dispatch(updateTodo(id));
@@ -26,18 +20,18 @@ export const TodoList = () => {
     <div className="h-fit max-h-3/2 flex justify-center p-2 bg-white/50 rounded-lg z-10 overflow-y-scroll scrollbar">
       <h2
         className={`place-self-center text-xl font-medium text-gray-800 ${
-          myTodos.length === 0 ? "block" : "hidden"
+          todos.length === 0 ? "block" : "hidden"
         }`}
       >
         Enter Your Todos
       </h2>
       <ul
         className={`w-64 flex flex-col gap-1 divide-y divide-gray-500 transition-discrete  ${
-          myTodos.length !== 0 ? "block" : "hidden"
+          todos.length !== 0 ? "block" : "hidden"
         }`}
       >
-        {myTodos &&
-          myTodos.map((todo) => (
+        {todos &&
+          todos.map((todo) => (
             <li key={todo.id} className="flex items-center gap-3 transition">
               <div
                 className="relative flex place-items-center"
