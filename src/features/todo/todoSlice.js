@@ -23,11 +23,6 @@ export const todoSlice = createSlice({
       localStorage.setItem("myTodos", JSON.stringify(state.todos));
     },
     updateTodo: (state, action) => {
-      // const selectedTodos = state.todos.filter(
-      //   (todo) => todo.id === action.payload
-      // );
-
-      // console.log(state.todos[0]);
       state.todos = state.todos.map((todo) => {
         if (todo.id === action.payload) {
           if (todo.isCheck === false) {
@@ -38,7 +33,6 @@ export const todoSlice = createSlice({
         } else {
           return todo;
         }
-        console.log(state.todos);
       });
       localStorage.setItem("myTodos", JSON.stringify(state.todos));
     },
